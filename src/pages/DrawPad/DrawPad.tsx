@@ -4,6 +4,7 @@ import Coordinates from './components/Coordinates';
 
 
 interface Room {
+  id: number;
   xStart: number;
   yStart: number;
   xEnd: number;
@@ -28,6 +29,7 @@ export default function DrawPad() {
     }
 
     setRoom(prev => [...prev, {
+      id: Date.now(),
       xStart: startPos.x,
       yStart: startPos.y,
       xEnd: e.clientX,
@@ -50,10 +52,33 @@ export default function DrawPad() {
 
   console.log(room);
 
+  
+
   return (
     <div className='drawing'>
-      <Coordinates/>
+      {/* <Coordinates/> */}
+      
+      {room.map((r) => {
+        const left = Math.min(r.xStart, r.xEnd);
+        const top = Math.min(r.yStart, r.yEnd);
+        const width = Math.abs(r.xStart - r.xEnd);
+        const height = Math.abs(r.yEnd - r.yStart);
 
+        return(
+          <div 
+          key={r.id} 
+          className = "room" 
+          style={{
+            position: 'absolute',
+            left: left,
+            top: top,
+            width: width,
+            height: height,
+            border: 'solid 1px',
+          }}>
+          </div>
+        )
+      })}
       
     </div>
   )
