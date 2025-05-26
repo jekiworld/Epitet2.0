@@ -1,9 +1,16 @@
-.drawing {
+main{
+  display: flex;
   position: relative;
   width: 100vw;
   height: 100vh;
   background-color: #f0f0f0;
   overflow: hidden;
   cursor: crosshair;
+}
+
+.draw-zone{
+  height: 100%;
+  width: 100%;
+  border: solid red;
 }
 

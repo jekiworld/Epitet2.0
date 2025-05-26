@@ -3,13 +3,13 @@ import "./sidebar.css"
 
 export default function Sidebar() {
   return (
-    <div className='sidebar'>
-        <div className="createRoom">
+    <aside  className='sidebar'>
+        <button  className="create">
             Создать комнату
-        </div>
-        <div className="addPc">
+        </button >
+        <button  className="create">
             Добавить компьютер
-        </div>
-    </div>
+        </button >
+    </aside >
   )
 }
